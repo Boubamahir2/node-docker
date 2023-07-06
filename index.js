@@ -89,7 +89,7 @@ app.use('/api/v1/posts', postRouter);
 app.use('/api/v1/users', userRouter);
 
 app.get('/api/v1', (req, res) => {
-  res.send('<h2>hello world!!!</h2>');
+  res.send('<h2>hello world!</h2>');
   console.log("yeah its working")
 });
 
