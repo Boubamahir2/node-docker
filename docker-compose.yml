@@ -12,6 +12,7 @@ services:
 
   node-app:
     build: .
+    image: boubamahir/node-app
     restart: unless-stopped
     environment:
       - PORT=3000
