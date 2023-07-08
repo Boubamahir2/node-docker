@@ -1,20 +1,19 @@
 version: "3"
 services:
-  nginx: 
+  nginx:
     ports:
       - "80:80"
 
   node-app:
-  # swarm configs
+    # swarm configs
     deploy:
       replicas: 8
-      restart_policy: 
-        conditions: any
-      update_config: 
+      restart: on-failure
+      update_config:
         parallelism: 2
         delay: 15s
-  # app configs
-    build: 
+    # app configs
+    build:
       context: .
       args:
         NODE_ENV: production
@@ -23,3 +22,4 @@ services:
     command: node index.js
     # env_file:
     #   - ./.env
+    
