@@ -5,6 +5,15 @@ services:
       - "80:80"
 
   node-app:
+  # swarm configs
+    deploy:
+      replicas: 8
+      restart_policy: 
+        conditions: any
+      update_config: 
+        parallelism: 2
+        delay: 15s
+  # app configs
     build: 
       context: .
       args:
