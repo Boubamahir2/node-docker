@@ -8,7 +8,11 @@ services:
     # swarm configs
     deploy:
       replicas: 8
-      restart: on-failure
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
       update_config:
         parallelism: 2
         delay: 15s
